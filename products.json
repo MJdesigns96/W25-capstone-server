@@ -1,0 +1,118 @@
+[
+    {
+        "id": 1,
+        "name": "sneaker",
+        "price": 139,
+        "images": {},
+        "descriptionShort": "Sneaker for the city, streets, and everything in between",
+        "sizes": [{
+            "xSmall":false,
+            "small":true,
+            "medium":false,
+            "large":false,
+            "xLarge":false
+        }],
+        "colors": [{"colorName": "black"}],
+        "descriptionLong": "this is a longer version of the text for the description short.",
+        "additionalDetails": [{
+            "materials": "plastic",
+            "recommendedFor": "outdoor",
+            "madeIn": "Vietnam",
+            "care": "Brush off dirt with a wet rag then run on cold water clean cycle with like colours.",
+            "shipping": "Worldwide Flat Rate Shipping"
+        }],
+        "type": "sneaker",
+        "materials": [{
+            "material1": "plastic"
+        }],
+        "promotion": 0,
+        "stock": 39
+    },
+    {
+        "id": 2,
+        "name": "boot",
+        "price": 205,
+        "images": {},
+        "descriptionShort": "Boot for all purpose booting",
+        "sizes": [{
+            "xSmall":false,
+            "small":true,
+            "medium":false,
+            "large":false,
+            "xLarge":false
+        }],
+        "colors": [{"colorName": "black"}],
+        "descriptionLong": "Boot for all purpose booting throughout the city, hiking, and work. This boot comes with our pateneted non patented material and design that makes it easier for people to walk about and stomp the yard.",
+        "additionalDetails": [{
+            "materials": "leather",
+            "recommendedFor": "outdoor",
+            "madeIn": "Bangledesh",
+            "care": "Wipe off with damp towel and apply leather boot oil every 6 months",
+            "shipping": "Worldwide Flat Rate Shipping"
+        }],
+        "type": "boot",
+        "materials": [{
+            "material1": "leather"
+        }],
+        "promotion": 10,
+        "stock": 200
+    },
+    {
+        "id": 3,
+        "name": "Sandal",
+        "price": 25,
+        "images": {},
+        "descriptionShort": "Our classic sandal for those off days",
+        "sizes": [{
+            "xSmall":false,
+            "small":true,
+            "medium":false,
+            "large":false,
+            "xLarge":false
+        }],
+        "colors": [{"colorName": "black"}],
+        "descriptionLong": "Our classic sandal for those off days. This sandal was designed for those days where you sit back and don't do anything. Made with a soft leather upsole and plastic bottom, this sandal is meant to cushion your step every part of the slow day.",
+        "additionalDetails": [{
+            "materials": "40% leather 60% plastic",
+            "recommendedFor": "outdoor or indoor",
+            "madeIn": "Vietnam",
+            "care": "Clean upper sole with leather cleaner.",
+            "shipping": "Worldwide Flat Rate Shipping"
+        }],
+        "type": "sandal",
+        "materials": [{
+            "material1": "leather"
+        }],
+        "promotion": 50,
+        "stock": 400
+    },
+    {
+        "id": 4,
+        "name": "test",
+        "price": 139,
+        "images": {},
+        "descriptionShort": "testing 123",
+        "sizes": [{
+            "xSmall":false,
+            "small":true,
+            "medium":false,
+            "large":false,
+            "xLarge":false
+        }],
+        "colors": [{"colorName": "black"}],
+        "descriptionLong": "this is a longer version of the text for the description short.",
+        "additionalDetails": [{
+            "materials": "plastic",
+            "recommendedFor": "outdoor",
+            "madeIn": "Vietnam",
+            "care": "Brush off dirt with a wet rag then run on cold water clean cycle with like colours.",
+            "shipping": "Worldwide Flat Rate Shipping"
+        }],
+        "type": "sneaker",
+        "materials": [{
+            "material1": "plastic"
+        }],
+        "promotion": 0,
+        "stock": 39
+    }
+]
