@@ -4,7 +4,7 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 //schemas
 import Product from './schemas/products.js';
-
+import Blog from './schemas/blogs.js';
 
 const app = express();
 const PORT = process.env.PORT || 8888;
@@ -25,4 +25,9 @@ app.listen(PORT, () => {
 app.get('/products', async (req, res) => {
     const productsList = await Product.find();
     res.json(productsList);
+})
+
+app.get('/blogs', async(req,res) => {
+    const blogsList = await Blog.find();
+    res.json(blogsList);
 })
