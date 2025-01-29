@@ -5,6 +5,7 @@ import cors from 'cors';
 //schemas
 import Product from './schemas/products.js';
 import Blog from './schemas/blogs.js';
+import User from './schemas/users.js';
 
 const app = express();
 const PORT = process.env.PORT || 8888;
@@ -31,3 +32,22 @@ app.get('/blogs', async(req,res) => {
     const blogsList = await Blog.find();
     res.json(blogsList);
 })
+
+app.get('/users', async(req,res) => {
+    const usersList = await User.find();
+    res.json(usersList);
+})
+
+app.post('/registerUser', async(req,res) => {
+    try {
+        const newUser = new User({
+            id: req.body.id,
+            name: req.body.name,
+            email: req.body.email,
+            password: req.body.password
+        });
+        await newUser.save();
+    } catch (err) {
+        console.error('Error: ', err);
+    };
+});
