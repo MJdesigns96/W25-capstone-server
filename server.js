@@ -33,6 +33,7 @@ app.get('/blogs', async(req,res) => {
     res.json(blogsList);
 })
 
+// make method for server to get users, update users, and delete users
 app.get('/users', async(req,res) => {
     const usersList = await User.find();
     res.json(usersList);
@@ -47,6 +48,7 @@ app.post('/registerUser', async(req,res) => {
             password: req.body.password
         });
         await newUser.save();
+        return res.json();
     } catch (err) {
         console.error('Error: ', err);
     };
