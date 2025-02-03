@@ -37,7 +37,7 @@ app.get('/blogs', async(req,res) => {
 app.get('/users', async(req,res) => {
     const usersList = await User.find();
     res.json(usersList);
-})
+});
 
 app.post('/registerUser', async(req,res) => {
     try {
