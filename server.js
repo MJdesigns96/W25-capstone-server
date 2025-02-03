@@ -39,6 +39,19 @@ app.get('/users', async(req,res) => {
     res.json(usersList);
 });
 
+app.post('/findUser', async(req, res) => {
+    const UserEmail = req.body.email;
+    const UserPassword = req.body.password;
+    try {
+        const UserData = await User.find({ email: UserEmail, password: UserPassword })
+        .then((data) => {
+            return res.json(data);
+        })
+    } catch (err) {
+        console.error('Error: ', err);
+    };
+});
+
 app.post('/registerUser', async(req,res) => {
     try {
         const newUser = new User({
