@@ -18,11 +18,12 @@ const dbUrl = `mongodb+srv://${process.env.DBUSER}:${process.env.DBPWD}@${proces
 
 mongoose.connect(dbUrl);
 
-// define routes and middleware
+// start server
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 })
 
+// get data
 app.get('/products', async (req, res) => {
     const productsList = await Product.find();
     res.json(productsList);
@@ -33,12 +34,12 @@ app.get('/blogs', async(req,res) => {
     res.json(blogsList);
 })
 
-// make method for server to get users, update users, and delete users
 app.get('/users', async(req,res) => {
     const usersList = await User.find();
     res.json(usersList);
 });
 
+// User Methods
 app.post('/findUser', async(req, res) => {
     const UserEmail = req.body.email;
     const UserPassword = req.body.password;
@@ -61,6 +62,30 @@ app.post('/registerUser', async(req,res) => {
             password: req.body.password
         });
         await newUser.save();
+        return res.json();
+    } catch (err) {
+        console.error('Error: ', err);
+    };
+});
+
+app.post('/addProduct', async(req, res) => {
+    try {
+        const newProduct = new Product({
+            id: req.body.id,
+            name: req.body.name,
+            price: req.body.price,
+            images: req.body.images,
+            descriptionShort: req.body.descriptionShort,
+            sizes: req.body.sizes,
+            colors: req.body.colors,            
+            descriptionLong: req.body.descriptionLong,            
+            additionalDetails: req.body.additionalDetails,            
+            type: req.body.type,            
+            materials: req.body.materials,
+            promotion: req.body.promotion,
+            stock: req.body.stock
+        });
+        await newProduct.save();
         return res.json();
     } catch (err) {
         console.error('Error: ', err);
