@@ -91,3 +91,12 @@ app.post('/addProduct', async(req, res) => {
         console.error('Error: ', err);
     };
 });
+
+// create a temporary product object with the new details then send it through to mongo db to update
+// https://www.geeksforgeeks.org/mongoose-findoneandupdate-function/
+// app.post('/updateProduct', async(req, res) => {
+//     var query = {'id': req.body.id};
+//     try{
+//         Product.findOneAndUpdate(query, )
+//     }
+// })
