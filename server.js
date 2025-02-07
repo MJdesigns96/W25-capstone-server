@@ -95,27 +95,25 @@ app.post('/addProduct', async(req, res) => {
 // create a temporary product object with the new details then send it through to mongo db to update
 // https://www.geeksforgeeks.org/mongoose-findoneandupdate-function/
 app.post('/updateProduct', async(req, res) => {
-    var query = {'id': req.body.id};
+    var query = req.body.id;
     try{
-        const updateProduct = new Product({
-            id: req.body.id,
-            name: req.body.name,
-            price: req.body.price,
-            images: req.body.images,
-            descriptionShort: req.body.descriptionShort,
-            sizes: req.body.sizes,
-            colors: req.body.colors,            
-            descriptionLong: req.body.descriptionLong,            
-            additionalDetails: req.body.additionalDetails,            
-            type: req.body.type,            
-            materials: req.body.materials,
-            promotion: req.body.promotion,
-            stock: req.body.stock
-        });
-        console.log(query);
-        console.log(updateProduct);
-        //getting data from req body but not sending to mongo atm
-         Product.updateOne({ id: query }, updateProduct)
+         Product.updateOne({ id: query }, {
+            $set: {
+                id: req.body.id,
+                name: req.body.name,
+                price: req.body.price,
+                images: req.body.images,
+                descriptionShort: req.body.descriptionShort,
+                sizes: req.body.sizes,
+                colors: req.body.colors,            
+                descriptionLong: req.body.descriptionLong,            
+                additionalDetails: req.body.additionalDetails,            
+                type: req.body.type,            
+                materials: req.body.materials,
+                promotion: req.body.promotion,
+                stock: req.body.stock
+            }
+         })
          return res.json();
     } catch (err) {
         console.error('Error: ', err);
