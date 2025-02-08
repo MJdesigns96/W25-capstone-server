@@ -25,7 +25,7 @@ app.listen(PORT, () => {
 
 // get data
 app.get('/products', async (req, res) => {
-    const productsList = await Product.find();
+    const productsList = await Product.find().sort({id: "asc"});
     res.json(productsList);
 })
 
@@ -68,6 +68,7 @@ app.post('/registerUser', async(req,res) => {
     };
 });
 
+//product admin methods
 app.post('/addProduct', async(req, res) => {
     try {
         const newProduct = new Product({
@@ -92,8 +93,6 @@ app.post('/addProduct', async(req, res) => {
     };
 });
 
-// create a temporary product object with the new details then send it through to mongo db to update
-// https://www.geeksforgeeks.org/mongoose-findoneandupdate-function/
 app.post('/updateProduct', async(req, res) => {
     var query = req.body.id;
     try{
@@ -114,7 +113,21 @@ app.post('/updateProduct', async(req, res) => {
                 stock: req.body.stock
             }
          })
+        .catch((err) => {
+            console.log(err)
+         })
          return res.json();
+    } catch (err) {
+        console.error('Error: ', err);
+    };
+});
+
+app.post('/deleteProduct', async(req, res) => {
+    var deleteProductId = req.body.id;
+    try {
+        let deleted = await Product.findOneAndDelete({id: deleteProductId});
+        console.log(deleted.name, "has been deleted.")
+        return res.json();
     } catch (err) {
         console.error('Error: ', err);
     };
