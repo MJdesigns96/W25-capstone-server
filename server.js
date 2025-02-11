@@ -6,6 +6,7 @@ import cors from 'cors';
 import Product from './schemas/products.js';
 import Blog from './schemas/blogs.js';
 import User from './schemas/users.js';
+import Order from './schemas/orders.js';
 
 const app = express();
 const PORT = process.env.PORT || 8888;
@@ -38,6 +39,11 @@ app.get('/users', async(req,res) => {
     const usersList = await User.find();
     res.json(usersList);
 });
+
+app.get('orders', async(req, res) => {
+    const ordersList = await Order.find();
+    res.json(ordersList);
+})
 
 // User Methods
 app.post('/findUser', async(req, res) => {
@@ -127,6 +133,26 @@ app.post('/deleteProduct', async(req, res) => {
     try {
         let deleted = await Product.findOneAndDelete({id: deleteProductId});
         console.log(deleted.name, "has been deleted.")
+        return res.json();
+    } catch (err) {
+        console.error('Error: ', err);
+    };
+});
+
+//send orders to db
+app.post('/newOrder', async(req,res) => {
+    var newOrderId = req.body.id + 1;
+    try {
+        const newOrder = new Order({
+            id: newOrderId,
+            userId: req.body.userId,
+            items: req.body.items,
+            total: req.body.total,
+            paid: req.body.paid,
+            shipped: req.body.shipped,
+            completed: req.body.completed
+        });
+        await newOrder.save();
         return res.json();
     } catch (err) {
         console.error('Error: ', err);
