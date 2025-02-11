@@ -12,6 +12,9 @@ const orderSchema = new mongoose.Schema({
     paid: Boolean,
     shipped: Boolean,
     completed: Boolean
+},
+{
+    collection: 'orders'
 });
 
 export default mongoose.models.Order || mongoose.model('Order', orderSchema);

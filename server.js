@@ -40,7 +40,7 @@ app.get('/users', async(req,res) => {
     res.json(usersList);
 });
 
-app.get('orders', async(req, res) => {
+app.get('/orders', async(req, res) => {
     const ordersList = await Order.find();
     res.json(ordersList);
 })
@@ -141,10 +141,9 @@ app.post('/deleteProduct', async(req, res) => {
 
 //send orders to db
 app.post('/newOrder', async(req,res) => {
-    var newOrderId = req.body.id + 1;
     try {
         const newOrder = new Order({
-            id: newOrderId,
+            id: req.body.orderId,
             userId: req.body.userId,
             items: req.body.items,
             total: req.body.total,
