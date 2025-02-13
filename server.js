@@ -181,6 +181,17 @@ app.post('/updateBlog', async(req, res) => {
     };
 })
 
+app.post('/deleteBlog', async(req,res) => {
+    var deleteBlogId = req.body.id;
+    try {
+        let deleted = await Blog.findOneAndDelete({id: deleteBlogId});
+        console.log(deleted.title, "has been deleted.")
+        return res.json();
+    } catch (err) {
+        console.error('Error: ', err);
+    };
+})
+
 //send orders to db
 app.post('/newOrder', async(req,res) => {
     try {
