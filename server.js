@@ -52,7 +52,12 @@ app.post('/findUser', async(req, res) => {
     try {
         const UserData = await User.find({ email: UserEmail, password: UserPassword })
         .then((data) => {
-            return res.json(data);
+            if(data.length === 1) {
+                return res.json(data);
+            } else {
+                let response = false;
+                return res.json(response);
+            }            
         })
     } catch (err) {
         console.error('Error: ', err);
@@ -138,6 +143,43 @@ app.post('/deleteProduct', async(req, res) => {
         console.error('Error: ', err);
     };
 });
+
+//blog admin methods
+app.post('/addBlog', async(req, res) => {
+    // console.log(req.body);
+    try {
+        const newBlog = new Blog({
+            id: req.body.id,
+            title: req.body.title,
+            descriptionShort: req.body.descriptionShort,
+            text: req.body.text
+        });
+        await newBlog.save();
+        return res.json();
+    } catch (err) {
+        console.error('Error: ', err);
+    };
+});
+
+app.post('/updateBlog', async(req, res) => {
+    var query = req.body.id;
+    try{
+        Blog.updateOne({ id: query }, {
+            $set: {
+                id: req.body.id,
+                title: req.body.title,
+                descriptionShort: req.body.descriptionShort,
+                text: req.body.text
+            }
+         })
+        .catch((err) => {
+            console.log(err)
+         })
+         return res.json();
+    } catch (err) {
+        console.error('Error: ', err);
+    };
+})
 
 //send orders to db
 app.post('/newOrder', async(req,res) => {
