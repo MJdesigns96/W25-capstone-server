@@ -11,7 +11,16 @@ const orderSchema = new mongoose.Schema({
     total: Number,
     paid: Boolean,
     shipped: Boolean,
-    completed: Boolean
+    completed: Boolean,
+    email: String,
+    firstName: String,
+    lastName: String,
+    address: String,
+    city: String,
+    postal: String,
+    province: String,
+    shipping: String,
+    paymentMethod: String
 },
 {
     collection: 'orders'

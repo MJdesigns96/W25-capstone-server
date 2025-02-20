@@ -202,7 +202,16 @@ app.post('/newOrder', async(req,res) => {
             total: req.body.total,
             paid: req.body.paid,
             shipped: req.body.shipped,
-            completed: req.body.completed
+            completed: req.body.completed,
+            email: req.body.email,
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
+            address: req.body.address,
+            city: req.body.city,
+            postal: req.body.postal,
+            province: req.body.province,
+            shipping: req.body.shipping,
+            paymentMethod: req.body.paymentMethod
         });
         await newOrder.save();
         return res.json();
