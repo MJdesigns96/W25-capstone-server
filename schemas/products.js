@@ -4,17 +4,18 @@ const productSchema = new mongoose.Schema({
     id: Number,
     name: String,
     price: Number,
-    images: {
-        data: Buffer, 
-        contentType: String
-    },
+    images: [{
+        img1: String,
+        img2: String,
+        img3: String
+    }],
     descriptionShort: String,
     sizes: [{
-        xSmall: Boolean,
-        small: Boolean,
-        medium: Boolean,
-        large: Boolean,
-        xLarge: Boolean
+        7: Boolean,
+        8: Boolean,
+        9: Boolean,
+        10: Boolean,
+        11: Boolean
     }],
     colors: [{colorName : String}],
     descriptionLong: String,
