@@ -13,7 +13,7 @@ export default function Cart (props) {
     //create object for payment details
     let paymentDetails = {
         email: items.userEmail ? items.userEmail : "",
-        firstName: items.userName ? items.userName : "",
+        firstName: "",
         lastName: "",
         address: "",
         city: "",
@@ -98,7 +98,6 @@ export default function Cart (props) {
     }
 
     if (items.cart === undefined) {
-        leftSide = "";
         rightSide = (
             <div>
                 <h2>There is nothing in your Cart</h2>
@@ -106,7 +105,7 @@ export default function Cart (props) {
         )
     } else {
         leftSide = (
-            <div className="col px-5">
+            <div className="col px-5 pt-5">
                 <div className="row">
                     <div className="col d-flex justify-content-start">
                         <button type="button" className="btn btn-secondary mb-5" onClick={() => navigateTo(-1)}>Back</button>
@@ -119,13 +118,13 @@ export default function Cart (props) {
                     <h4 className="text-start">Contact</h4>
                     <div className="input-group">
                         <label htmlFor="email" className="input-group-text">Email: </label>
-                        <input type="text" name="email" id="email" className="form-control" value={items.userEmail ? items.userEmail : ""} />
+                        <input type="text" name="email" id="email" className="form-control" value={items.userEmail ? items.userEmail : ""} onChange={handleChange} />
                     </div>
                     <h4 className="text-start mt-3">Shipping Address</h4>
                     <div className="row">
                         <div className="input-group col">
                             <label htmlFor="firstName" className="input-group-text">First Name: </label>
-                            <input type="text" name="firstName" id="firstName" className="form-control" value={items.userName ? items.userName : ""} onChange={handleChange}/>
+                            <input type="text" name="firstName" id="firstName" className="form-control" onChange={handleChange} />
                         </div>
                         <div className="input-group col">
                             <label htmlFor="lastName" className="input-group-text">Last Name: </label>
@@ -235,14 +234,15 @@ export default function Cart (props) {
     return (
         <>
             <div className="row">
-                <div className="col pt-5">
-                    { items.cart === undefined ? <h2>Oops?!</h2> : "" }
-                    {leftSide}
+                { items.cart === undefined ? <h2 className="mt-5">Oops?!</h2> : "" }
+                {leftSide}
+                {rightSide}
+                {/* <div className="col">
+                    
                 </div>
                 <div className="col">
-                    {rightSide}
-                </div>
-                
+                    
+                </div> */}
             </div>
             { items.cart === undefined ? 
                 <div className="row my-5">
