@@ -8,19 +8,20 @@ This project is connected to MongoDB through Mongoose with Express and Node.js r
 The client components are run through React + Vite.
 
 ### Challenges
-One of the key challenges I've faced with this project is the saving and retreival of data through MongoDB. The data needing to be in JSON format has made it challenging to inplement methods throughout this website due to the constant conversion between objects, arrays, and storing the data into localstorage.
+- Object vs array methods; using MongoDB as my primary database has raised some slight issues where JSON data is being retreived and needing to be adapted to use array and other methods.
+- Images; originally the images were stored in Mongodb as base64, this was causing issues where the request bodies being sent server side were too big and performance was being effected. Alternative methods were explored.
 
 ### Future
-- Implement admin validation through the login window to direct the admin user to the admin dashboard if validated
+- 
 - Connect to a payment processing application and allow payments to go through
 - If a payment has gone through, save the information in a orders table that can be accessed by Users and Admin
 
 ## Installation
 To install the dependencies "npm i" should be run to install all node dependencies.
-Then "npm start" should start the server locally.
+From the root directory "npm start" should be run to start the server environment.
+From the "capstone-react" directory, "npm run dev" should be run in a separate terminal to start the client environment.
 
-### Client side
+### Client side git logs
+This project originally had 2 different git logs, client and server, these two were merged for deployment. The git logs can be found below
+
 https://github.com/MJdesigns96/W25-Capstone-client/tree/main
-
-### Server
-This server should be running in the background for the client methods and data to be retrieved.
