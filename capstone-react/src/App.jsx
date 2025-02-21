@@ -63,8 +63,8 @@ function App() {
   }, []);
 
   useEffect(()=> {
-      // axios.get('http://localhost:8888/products')
-      axios.get('https://capstone-ten-wine.vercel.app/products')
+      axios.get('http://localhost:8888/products')
+      // axios.get('https://capstone-ten-wine.vercel.app/products')
       .then(response => setProducts(response.data))
       .catch(error => console.error(error));
   }, []);
