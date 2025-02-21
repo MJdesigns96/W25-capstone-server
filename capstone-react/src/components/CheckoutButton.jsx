@@ -44,6 +44,6 @@ export default function CheckoutButton(props) {
     }
 
     return (
-        <button type="button" className="btn btn-primary mb-5" onClick={submitOrder}>Checkout</button>
+        <button type="button" className="btn btn-primary" onClick={submitOrder}>Checkout</button>
     )
 }

@@ -9,7 +9,7 @@ export default function Cart (props) {
     let items = {...localStorage};
     let userCart;
 
-    // console.log(items);
+    console.log(items);
     //create object for payment details
     let paymentDetails = {
         email: items.userEmail ? items.userEmail : "",
@@ -49,7 +49,6 @@ export default function Cart (props) {
     let taxes = 0;
     let shipping = 0;
     let total = 0;
-
     let checkoutItems = () => {
         // get item details from localstorage
         userCart = cart?.map(entry => (
@@ -107,12 +106,20 @@ export default function Cart (props) {
         )
     } else {
         leftSide = (
-            <div className="col px-5 pt-5">
+            <div className="col px-5">
+                <div className="row">
+                    <div className="col d-flex justify-content-start">
+                        <button type="button" className="btn btn-secondary mb-5" onClick={() => navigateTo(-1)}>Back</button>
+                    </div>
+                </div>
+                <div className="row mb-4">
+                    <h3>Payment Details</h3>
+                </div>
                 <form action={setPaymentDetails}>
                     <h4 className="text-start">Contact</h4>
                     <div className="input-group">
                         <label htmlFor="email" className="input-group-text">Email: </label>
-                        <input type="text" name="email" id="email" className="form-control" value={items.userEmail ? items.userEmail : ""} onChange={handleChange} />
+                        <input type="text" name="email" id="email" className="form-control" value={items.userEmail ? items.userEmail : ""} />
                     </div>
                     <h4 className="text-start mt-3">Shipping Address</h4>
                     <div className="row">
@@ -180,6 +187,11 @@ export default function Cart (props) {
         )
         rightSide = (
             <div className="col bg-secondary-subtle px-5 pt-5">
+                <div className="row">
+                    <div className="col d-flex justify-content-end">
+                        <button type="button" className="btn btn-secondary mb-5" onClick={clearCart}>Clear Cart</button>
+                    </div>
+                </div>       
                 <div className="row mb-4">
                     <h3>Cart</h3>
                 </div>
@@ -224,10 +236,13 @@ export default function Cart (props) {
         <>
             <div className="row">
                 <div className="col pt-5">
-                    { items.cart === undefined ? <h2>Oops?!</h2> : <h3>Payment Details</h3> }
+                    { items.cart === undefined ? <h2>Oops?!</h2> : "" }
                     {leftSide}
                 </div>
-                {rightSide}
+                <div className="col">
+                    {rightSide}
+                </div>
+                
             </div>
             { items.cart === undefined ? 
                 <div className="row my-5">
@@ -236,8 +251,9 @@ export default function Cart (props) {
                     </div>
                 </div> 
             : "" }
-            { items.cart === undefined ? "" : <CheckoutButton orderId={orderId} userId={userId} items={checkoutCart} total={total} payment={payment} /> }
-            { items.cart === undefined ? "" : <button type="button" className="btn btn-primary mb-5" onClick={clearCart}>Clear Cart</button> }
+            <div className="row my-5 mx-auto w-25 d-flex align-items-center">
+                { items.cart === undefined ? "" : <CheckoutButton orderId={orderId} userId={userId} items={checkoutCart} total={total} payment={payment} /> }
+            </div>
         </>
     )
 }
