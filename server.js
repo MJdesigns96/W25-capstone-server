@@ -14,6 +14,7 @@ const PORT = process.env.PORT || 8888;
 app.use(cors());
 app.use(express.json());
 app.use(cors({
+    credentials: true,
     origin: 'capstone-ten-wine.vercel.app'
   }));
 
