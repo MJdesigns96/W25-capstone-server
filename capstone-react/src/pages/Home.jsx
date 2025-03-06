@@ -30,7 +30,7 @@ const Home = (props) => {
                     </div>
                     <div className='row mb-5 text-start'>
                         <h3>Products</h3>
-                        <small className="mb-3">Some small text about things.</small>
+                        <small className="mb-3">Some of our featured products</small>
                         {passProductsProps}
                     </div>
                     <div className="row">
