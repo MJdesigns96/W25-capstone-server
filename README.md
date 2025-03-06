@@ -1,4 +1,4 @@
-# Ecommerce MERN Capstone Project - Server Side
+# Ecommerce MERN Capstone Project
 
 ## Description
 This web project is intended for HTTP-5310 Winter semester's capstone project meant to use a MERN stack to create a ecommerce application.
@@ -12,7 +12,6 @@ The client components are run through React + Vite.
 - Images; originally the images were stored in Mongodb as base64, this was causing issues where the request bodies being sent server side were too big and performance was being effected. Alternative methods were explored.
 
 ### Future
-- 
 - Connect to a payment processing application and allow payments to go through
 - If a payment has gone through, save the information in a orders table that can be accessed by Users and Admin
 
