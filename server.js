@@ -13,11 +13,11 @@ const PORT = process.env.PORT || 8888;
 
 app.use(cors());
 app.use(express.json());
-app.use(cors({
-    // origin: 'http://localhost:5713',
-    origin: 'https://capstone-client-sand.vercel.app/',
-    credentials: true
-  }));
+// app.use(cors({
+//     // origin: 'http://localhost:5713',
+//     origin: 'https://capstone-client-sand.vercel.app/',
+//     credentials: true
+//   }));
 
 // connect to the DB
 const dbUrl = `mongodb+srv://${process.env.DBUSER}:${process.env.DBPWD}@${process.env.DBHOST}`;
