@@ -15,7 +15,7 @@ app.use(cors());
 app.use(express.json());
 app.use(cors({
     // credentials: true,
-    origin: 'capstone-ten-wine.vercel.app'
+    origin: 'https://capstone-ten-wine.vercel.app'
   }));
 
 // connect to the DB
