@@ -14,8 +14,8 @@ const PORT = process.env.PORT || 8888;
 app.use(cors());
 app.use(express.json());
 app.use(cors({
-    // credentials: true,
-    origin: 'https://capstone-ten-wine.vercel.app'
+    credentials: true,
+    // origin: 'https://capstone-ten-wine.vercel.app'
   }));
 
 // connect to the DB
