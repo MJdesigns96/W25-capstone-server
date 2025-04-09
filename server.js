@@ -14,17 +14,6 @@ const PORT = process.env.PORT || 8888;
 app.use(cors());
 app.use(express.json());
 
-// const corsOrigin ={
-//     origin:'http://localhost:5173', 
-//     credentials:true,            
-//     optionSuccessStatus:200
-// }
-// app.use(cors(corsOrigin));
-// app.use(cors({
-//     origin: 'http://localhost:5173/',
-//     credentials: true
-//   }));
-
 // connect to the DB
 const dbUrl = `mongodb+srv://${process.env.DBUSER}:${process.env.DBPWD}@${process.env.DBHOST}`;
 

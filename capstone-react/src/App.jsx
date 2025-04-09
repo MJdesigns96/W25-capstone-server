@@ -56,25 +56,25 @@ function App() {
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:8888/users')
+    axios.get('https://capstone-ten-wine.vercel.app/users')
     .then(response => setUsers(response.data))
     .catch(error => console.error(error))
   }, []);
 
   useEffect(()=> {
-      axios.get('http://localhost:8888/products')
+      axios.get('https://capstone-ten-wine.vercel.app/products')
       .then(response => setProducts(response.data))
       .catch(error => console.error(error));
   }, []);
 
   useEffect(() => {
-      axios.get('http://localhost:8888/blogs')
+      axios.get('https://capstone-ten-wine.vercel.app/blogs')
       .then(response => setBlogs(response.data))
       .catch(error => console.error(error))
   }, []);
 
   useEffect(() => {
-    axios.get('http://localhost:8888/orders')
+    axios.get('https://capstone-ten-wine.vercel.app/orders')
     .then(response => setOrders(response.data))
     .catch(error => console.error(error))
   }, []);
